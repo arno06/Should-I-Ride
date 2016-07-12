@@ -4,16 +4,21 @@
         <title>Should I ride?</title>
         <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <style>
-
-            
-            *{font-family:'Oxigen', sans-serif;}
+            *{font-family:'Oxigen', sans-serif;padding:0;margin:0;}
 
             html, body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;}
 
-            body{background:url('assets/imgs/background.jpg') no-repeat center center;}
+            header{position:fixed;height:50px;width:100%;top:0;left:0;background:#2980b9;box-shadow: 0 1px 1px rgba(0, 0, 0, .2);}
 
-            h1{font-family:Pacifico;}
+            menu{position:fixed;width:300px;height:100%;overflow:auto;top:0;left:0;background:#fff;margin-left:-300px;}
+
+            #container{width:100%;height:100%;}
+
+            #container.homepage{background:url('assets/imgs/background.jpg') no-repeat center center;background-size:auto 100%;}
+
+            h1{font-family:Pacifico, serif;}
 
             form {display:block;background:#1E2F39;width:500px;height:300px;position:absolute;top:50%;left:50%;margin-top:-150px;margin-left:-250px;}
             
@@ -28,17 +33,27 @@
         </style>
     </head>
     <body>
-        <h1>Should I ride?</h1>
-        <form action='' method='get'>
-            <p>
-                <label>From:</label>
-                <input type="text" name="" placeholder="eg: Groslay, France"/>
-            </p>
-            <p>
-                <label>Destination:</label>
-                <input type="text" name="" placeholder="eg: Issy-les-Moulineaux, France"/>
-            </p>
-            <input type="submit" value="Should I ride?"/>
-        </form>
+        <header>
+            <a href=""></a>
+            <h2>Should I Ride?</h2>
+        </header>
+        <menu>
+            <li><a href="">Home</a></li>
+            <li><a href="">Favorites</a></li>
+            <li><a href="">Credits</a></li>
+        </menu>
+        <div id="container" class="homepage">
+            <form action='' method='get'>
+                <p>
+                    <label>From:</label>
+                    <input type="text" name="" placeholder="eg: Groslay, France"/>
+                </p>
+                <p>
+                    <label>Destination:</label>
+                    <input type="text" name="" placeholder="eg: Issy-les-Moulineaux, France"/>
+                </p>
+                <input type="submit" value="Should I ride?"/>
+            </form>
+        </div>
     </body>
 </html>

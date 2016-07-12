@@ -1,4 +1,4 @@
-<?php
+z<?php
 
 define('CACHE_DIR', 'cache/');
 define('GMAP_KEY', 'AIzaSyDlYKHMqs08IaEt6q3w6C8qSsGK_s4dC-c');
