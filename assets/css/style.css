@@ -8,11 +8,11 @@ menu{position:fixed;width:300px;height:100%;overflow:auto;top:0;left:0;backgroun
 
 #container{width:100%;height:100%;}
 
-#container.homepage{background:url('../imgs/background.jpg') no-repeat center center;background-size:auto 100%;}
+#container.homepage{background:url('../imgs/background.jpg') no-repeat center center;background-size:auto 100%;position:relative;}
 
 h1{font-family:Pacifico, serif;}
 
-form {display:block;max-width:500px;height:240px;position:absolute;top:50%;left:50%;margin-top:-120px;margin-left:-250px;}
+form {display:block;max-width:500px;height:240px;margin:0 auto 0;padding-top:190px;}
 
 form p{width:80%;margin:10px auto 20px;}
 
