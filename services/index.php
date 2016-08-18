@@ -50,9 +50,9 @@ include_once('includes/locales/'.$lang.'.php');
 /**
  * Debug - trace & trace_r emulated from debugger
  **/
-$debug = "";
-function trace($pString){global $debug;$debug .= $pString."<br/>";}
-function trace_r($pData){global $debug;$debug .= "<pre>".print_r($pData, true)."</pre><br/>";}
+$debug = [];
+function trace($pString){global $debug;$debug[] = $pString;}
+function trace_r($pData){global $debug;$debug[] = $pData;}
 
 function isget($pName){return isset($_GET[$pName])&&!empty(trim($_GET[$pName]));}
 
@@ -212,8 +212,6 @@ foreach($leg->steps as $s)
     }
 }
 
-trace_r($instructionPoints);
-
 $toLocation = $leg->end_location;
 $toLocation->name = $leg->end_address;
 $toLocation->duration = $leg->duration->value;
@@ -231,8 +229,6 @@ foreach($interestsPoints as &$point)
     $point->forecast = $forecast->list;
 }
 
-trace_r($interestsPoints);
-
-header('Content-Type', 'application/json');
+header('Content-type: application/json');
 echo json_encode(array('interest_points'=>$interestsPoints, 'debug'=>$debug));
 exit();

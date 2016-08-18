@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <script src="https://dependencies.arnaud-nicolas.fr/?need=Template.es6,M4Tween"></script>
+        <script src="https://dependencies.arnaud-nicolas.fr/?need=Template.es6,Request.es6"></script>
         <script type="application/json" id="routing_rules">
 {
     "home":
@@ -61,10 +61,22 @@
     </form>
 </script>
 <script type="text/template" id="Route_index_tpl">
-    <h2 style="margin-top:30px;">w00t</h2>
-    <a href="#home">Retour</a>
-    <div>{$content.from_location}</div>
-    <div>{$content.to_location}</div>
+    <div id="route" class="row">
+        <div class="col date">
+            <div class="row">
+bla
+            </div>
+        </div>
+        <div class="col info">
+            <div class="row">
+{foreach $content.points $point}
+    <div class="col">
+        <h3>{$point.name}<br/><span class="duration">{=getDuration($point.duration)}</span></h3>
+    </div>
+{/foreach}
+            </div>
+        </div>
+    </div>
 </script>
     </body>
 </html>

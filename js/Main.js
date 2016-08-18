@@ -1,5 +1,23 @@
 "use strict";
 
+class Tools
+{
+    static getDuration(pValue)
+    {
+        if(pValue === 0)
+            return "D&eacute;part";
+
+        if(pValue<60)
+        {
+            return Math.ceil(pValue)+" sec";
+        }
+        pValue /= 60;
+        return Math.ceil(pValue)+" min";
+    }
+}
+
+Template.FUNCTIONS.getDuration = Tools.getDuration;
+
 class Home extends FwJs.lib.DefaultController
 {
     constructor()
@@ -38,13 +56,19 @@ class Route extends FwJs.lib.DefaultController
     constructor()
     {
         super();
+        this.serviceEntryPoint = "services/";
     }
 
     index(pParameters)
     {
-        console.log("route detected");
         this.addContent("from_location", pParameters.from_location);
         this.addContent("to_location", pParameters.to_location);
+        Request.load(this.serviceEntryPoint).onComplete(this.serviceCompletedHandler.bind(this));
+    }
+
+    serviceCompletedHandler(e)
+    {
+        this.addContent('points', e.currentTarget.responseJSON.interest_points);
         this.dispatchEvent(new Event(FwJs.lib.events.RENDER));
     }
 }
