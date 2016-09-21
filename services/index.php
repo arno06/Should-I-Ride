@@ -229,6 +229,7 @@ foreach($interestsPoints as &$point)
     $point->forecast = $forecast->list;
 }
 
+
 header('Content-type: application/json');
 echo json_encode(array('interest_points'=>$interestsPoints, 'debug'=>$debug));
 exit();
